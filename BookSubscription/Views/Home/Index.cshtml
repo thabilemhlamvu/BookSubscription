@@ -1,0 +1,65 @@
+﻿@model BookSubscription.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="CodedThemes" />
+
+    @*<link rel="icon" href="~/Content/favicon.ico" type="image/x-icon">*@
+    <link rel="stylesheet" href="~/Content/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+
+</head>
+
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-content">
+            <div class="">
+                <span class="r"></span>
+                <span class="r s"></span>
+                <span class="r s"></span>
+                <span class="r"></span>
+            </div>
+
+            @using (Html.BeginForm("SignIn", "Home"))
+            {
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="mb-4">
+                            <i class="feather">
+                                <img src="~/Content/images/CompanyABC.jpg" style="width:300px;" />
+                            </i>
+                        </div>
+                        <h3 class="mb-4"></h3>
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(modelItem => modelItem.emailAddress, new { type = "email", placeholder = "email", @class = "form-control" })
+                        </div>
+                        <div class="input-group mb-4">
+                            @Html.PasswordFor(modelItem => modelItem.passWord, new { type = "password", placeholder = "password", @class = "form-control" })
+                        </div>
+                        <input type="submit" class="btn btn-primary shadow-2 mb-4" value="Sign In">
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <script src="~/Content/js/vendor-all.min.js"></script>
+    <script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/pcoded.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    <h5 class="m-b-10">Book Subscription</h5>
+                                </div>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:">Book Subscription</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <!-- [ fixed-layout ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-md-3"><input type="text" id="searchBox" class="form-control" placeholder="Search" /></div>
+                                            <div class="col-md-3"><button class="btn btn-primary" onclick="getContactList();">Search</button></div>
+                                        </div>
+                                    </div>
+
+                                    <div id="contactListContainer">
+
+                                    </div>
+
+                                </div>
+                                <!-- [ fixed-layout ] end -->
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+
+    getContactList();
+
+    function getContactList() {
+
+        var searchString = $("#searchBox").val();
+        
+        $.ajax({
+            url: '@Url.Action("_BookList", "Dashboard")',
+            data: { searchString: searchString }, 
+            success: function (response) {
+                document.getElementById("bookListContainer").innerHTML = response;
+            },
+            error: function (jgXHR, texStatus, errorThrown) {}
+        });
+    }
+
+</script>
